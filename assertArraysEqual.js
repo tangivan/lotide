@@ -1,6 +1,6 @@
-
 const eqArrays = (arr1, arr2) => {
   let assert = false;
+  if (arr1.length === 0 && arr2.length === 0) return true;
   if (arr1.length === arr2.length) {
     for (let i = 0; i < arr1.length; i++) {
       if (arr1[i] === arr2[i])
@@ -14,9 +14,9 @@ const eqArrays = (arr1, arr2) => {
 
 const assertArraysEqual = (actual, expected) => {
   if (eqArrays(actual, expected))
-    console.log(`✅✅✅ Assertion Passed: [${actual}] === [${expected}]`);
+    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
   else
-    console.log(`🛑🛑🛑 Assertion Failed: [${actual}] !== [${expected}]`);
+    console.log(`🛑🛑🛑 Assertion Failed: ${actual} !== ${expected}`);
 };
 
 assertArraysEqual([1, 2, 3], [1, 2, 3]); // => true

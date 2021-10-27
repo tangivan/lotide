@@ -1,6 +1,6 @@
-
 const eqArrays = (arr1, arr2) => {
   let assert = false;
+  if (arr1.length === 0 && arr2.length === 0) return true;
   if (arr1.length === arr2.length) {
     for (let i = 0; i < arr1.length; i++) {
       if (arr1[i] === arr2[i])
@@ -29,14 +29,16 @@ const without = (source, itemsToRemove) => {
       else
         valExists = false;
     }
-    if (!valExists)
+    if (!valExists) {
       newArr.push(source[i]);
+    }
     valExists = false;
   }
+  console.log(newArr);
   return newArr;
 }
 
-assertArraysEqual(without([1, 2, 3], [1]), [2, 3]); // => [2, 3]
+assertArraysEqual(without([1, 2, 3], [2]), [1, 3]); // => [2, 3]
 assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]); // => ["1", "2"]
 
 const words = ["hello", "world", "lighthouse"];

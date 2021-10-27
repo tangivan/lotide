@@ -1,8 +1,10 @@
 const assertEqual = (actual, expected) => {
-  if (actual === expected)
+  if (actual === expected) {
     console.log(`✅✅✅ Assertion Passed: [${actual}] === [${expected}]`);
-  else
+  }
+  else {
     console.log(`🛑🛑🛑 Assertion Failed: [${actual}] !== [${expected}]`);
+  }
 };
 
 assertEqual("identical string", "identical string");
