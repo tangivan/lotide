@@ -29,7 +29,9 @@ const eqObjects = (obj1, obj2) => {
     if (Array.isArray(obj1[key]) && Array.isArray(obj2[key])) {
       if (!eqArrays(obj1[key], obj2[key])) return false;
     }
-    else if (obj2[key] !== obj1[key]) return false;
+    else if (obj1[key] instanceof Object && obj2[key] instanceof Object) {
+      if (!eqObjects(obj1[key], obj2[key])) return false;
+    } else if (obj2[key] !== obj1[key]) return false;
   }
   return true;
 }
@@ -40,3 +42,13 @@ console.log(eqObjects(cd, dc)); // => true
 
 const cd2 = { c: "1", d: ["2", 3, 4] };
 console.log(eqObjects(cd, cd2)); // => false
+
+console.log(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })) // => true
+
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 })) // => false
+console.log(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 })) // => false
+
+
+let r1 = { a: { b: { c: { d: 1 } }, bb: 1 }, aa: 2, aaa: 3 };
+let r2 = { aa: 2, aaa: 3, a: { b: { c: { d: 1 } }, bb: 1 } };
+console.log(eqObjects(r1, r2));
