@@ -1,12 +1,20 @@
 const tail = require('../tail');
-const assertEqual = require('../assertEqual');
-//Test Case: Check the original array
-const words = ["Yo Yo", "Lighthouse", "Labs"];
-tail(words); // no need to capture the return value since we are not checking it
-assertEqual(words.length, 3); // original array should still have 3 elements!
+const assert = require('chai').assert;
 
-const answer = tail(['a1', 'a2', 'a3', 'a4']);
-assertEqual(answer.length, 3);
-assertEqual(answer[0], 'a2');
-assertEqual(answer[1], 'a3');
-assertEqual(answer[2], 'a4');
+describe("#tail", () => {
+  it("Check original array is not mutated", () => {
+    const words = ["Yo Yo", "Lighthouse", "Labs"];
+    tail(words);
+    assert.strictEqual(words.length, 3);
+  });
+
+  it("Check length of tail", () => {
+    const answer = tail(['a1', 'a2', 'a3', 'a4']);
+    assert.strictEqual(answer.length, 3);
+  });
+
+  it("Check tail(['a1', 'a2', 'a3', 'a4']) returns ['a2','a3','a4']", () => {
+    const answer = tail(['a1', 'a2', 'a3', 'a4']);
+    assert.deepEqual(answer, ['a2', 'a3', 'a4']);
+  });
+});
