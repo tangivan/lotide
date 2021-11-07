@@ -1,8 +1,8 @@
 {
-  "name": "lotide",
+  "name": "@tangivan/lotide",
   "version": "1.0.0",
-  "description": "",
-  "main": "assertArraysEqual.js",
+  "description": "A clone of the lodash Javascript library to practice creating various types of functions using JS",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/tangivan/lotide.git"
   },
-  "author": "",
+  "author": "Ivan Tang <ivan.gnat25@gmail.com> (https://github.com/tangivan/lotide#readme)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tangivan/lotide/issues"
